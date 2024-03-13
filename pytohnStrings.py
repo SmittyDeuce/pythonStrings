@@ -1,27 +1,71 @@
+from random import random, shuffle, choice
 # 1. Customer Data Sanitization
 # Objective:
 # The aim of this assignment is to practice string manipulation techniques by cleaning and formatting raw customer data extracted from a SaaS application's database.
 
 # Task 1: Code Correction
 # You are provided with a script that is supposed to format customer names by ensuring the first letter is uppercase and the rest are lowercase, regardless of how the data was entered. However, the script contains errors. Correct the script so that it functions as intended.
+
 def names(firstName, lastName):
     print(firstName.capitalize() + " " + lastName.capitalize())
 
-names('john', 'doe')
+# names('john', 'doe')
 
 # Task 2: Email Validation
 # Write a function that checks a list of email addresses for a SaaS application's user accounts. The function should verify that each email contains an "@" symbol and a "." after it, indicating a valid email format. If an email doesn't meet this criterion, print it out for further review.
 
-
-
-
+def email_validation():
+    email_addresses = [
+    'user123@examplecom',
+    'customer456@examplecom',
+    'client789@example.com',
+    'saasuser321example.com',
+    'businessuser789@example.com',
+    'saasclient456@example.com',
+    'customeruser123example.com',
+    'client456@example.com',
+    'business123@examplecom',
+    'saasclientuser789@example.com'
+    ]
+     
+    for email in email_addresses:
+        if '@' not in email or'.' not in email:
+            print(f"Invalid Email Format: {email}")
+# email_validation()
 
 # Task 3: Username Generation
 # Create a script that generates a username for each new user. The username should be a combination of the first three letters of their first name and the first three letters of their last name. If the name is shorter than three letters, use the full name. Ensure all usernames are in lowercase.
 
+def userNameGeneration():
+    first = input("What is your First Name: ")
+    last = input("What is your Last Name: ")
+
+    if len(first) > 3 and len(last) > 3:
+        firstThree = first[:3]
+        lastThree = last[:3]
+        firstThree = firstThree.lower()
+        lastThree = lastThree.lower()
+        print("New username is: ", firstThree + lastThree)
+    
+    elif len(first) < 3 and len(last) > 3:
+        lastThree = last[:3]
+        lastThree = lastThree.lower()
+        print("New username is: ", first.lower() + lastThree)
+    
+    elif len(first) > 3 and len(last) < 3:
+        firstThree = first[:3]
+        firstThree = firstThree.lower()
+        print("New username is: ", firstThree + last)
+        
+    else:
+        firstThree = first[:3]
+        lastThree = last[:3]
+        firstThree = firstThree.lower()
+        lastThree = lastThree.lower()
+        print("New username is: ", firstThree + lastThree)
 
 
-
+userNameGeneration()
 
 
 # 2. Product Review Analysis
