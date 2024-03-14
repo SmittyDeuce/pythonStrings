@@ -65,7 +65,7 @@ def userNameGeneration():
         print("New username is: ", firstThree + lastThree)
 
 
-userNameGeneration()
+# userNameGeneration()
 
 
 # 2. Product Review Analysis
@@ -74,6 +74,23 @@ userNameGeneration()
 
 # Task 1: Keyword Highlighter
 # Write a program that searches through a series of product reviews for keywords such as "good", "excellent", "bad", "poor", and "average". Print out each review with the keywords in uppercase so they stand out.
+
+def highlighter():
+    keywords = ["good", "excellent", "bad", 
+                "poor", "average", 'trash',
+                'perfect']
+    
+    review = input("Leave your us a Review!: ")
+    reviewList = review.split(" ")
+    
+    for idx in range(len(reviewList)):
+        for word in keywords:
+            if word in reviewList[idx]:
+                reviewList[idx] = reviewList[idx].upper()
+                modifiedReview = " ".join(reviewList)
+    print(modifiedReview)
+highlighter()
+
 
 # Task 2: Sentiment Tally
 # Develop a function that tallies the number of positive and negative words in each review. Use a predefined list of positive and negative words to check against. The function should return the count of positive and negative words for each review.
