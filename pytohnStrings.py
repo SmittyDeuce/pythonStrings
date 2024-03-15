@@ -89,11 +89,31 @@ def highlighter():
                 reviewList[idx] = reviewList[idx].upper()
                 modifiedReview = " ".join(reviewList)
     print(modifiedReview)
-highlighter()
+# highlighter()
 
 
 # Task 2: Sentiment Tally
 # Develop a function that tallies the number of positive and negative words in each review. Use a predefined list of positive and negative words to check against. The function should return the count of positive and negative words for each review.
+
+def sentimentTally():
+    badcounter = 0
+    goodcounter = 0
+    goodWords = ["good", "excellent", "perfect"]
+    badWords = ["poor", "bad", "trash"]
+
+    review = input("Leave your us a Review!: ")
+    reviewList = review.split(" ")
+
+    for word in reviewList:
+        # print(word)
+        if word in badWords:
+            badcounter += 1
+        elif word in goodWords:
+            goodcounter += 1
+    return f"There were a total of {badcounter} negative words and {goodcounter} positive words"
+
+print(sentimentTally())
+
 
 # Task 3: Review Summary
 # Implement a script that takes the first 50 characters of a review and appends "…" to create a summary. Ensure that the summary does not cut off in the middle of a word.
