@@ -112,11 +112,23 @@ def sentimentTally():
             goodcounter += 1
     return f"There were a total of {badcounter} negative words and {goodcounter} positive words"
 
-print(sentimentTally())
+# print(sentimentTally())
 
 
 # Task 3: Review Summary
 # Implement a script that takes the first 50 characters of a review and appends "…" to create a summary. Ensure that the summary does not cut off in the middle of a word.
+
+def reviewSummary():
+    review = input("leave a review: ")
+    reviewList = review.split(" ")
+
+    if len(reviewList) > 50:
+        reviewList[50] = '...'  
+    summary = ' '.join(reviewList[:51])
+    print(summary)
+
+
+reviewSummary()
 
 # 3. Log File Formatter
 # Objective:
