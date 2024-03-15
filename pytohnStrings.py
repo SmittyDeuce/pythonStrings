@@ -125,10 +125,10 @@ def reviewSummary():
     if len(reviewList) > 50:
         reviewList[50] = '...'  
     summary = ' '.join(reviewList[:51])
-    print(summary)
+    return summary
 
 
-# reviewSummary()
+# print(reviewSummary())
 
 # 3. Log File Formatter
 # Objective:
@@ -149,14 +149,56 @@ def extraction():
         else:
             print(f"[{converted}], {log}")
 
-extraction()
+# extraction()
 
 
 # Task 2: Error Identification
 # Create a function that scans through the log file and identifies any error messages. Assume that all error messages start with the word "ERROR:". The function should print out each error message with its corresponding timestamp.
 
+def errorIdentification ():
+       while True:
+        from datetime import datetime
+        current_date = datetime.now()
+        timestamp_Unix = int(current_date.timestamp())
+        converted = datetime.fromtimestamp(timestamp_Unix)
+        log = input("Enter Log:  (enter 'done' when finshed) ")
+        log = log.lower()
+
+        if log == 'done':
+            break
+        elif log.startswith("error"):
+            print(f"[{converted}], ERROR: {log} ")
+
+# errorIdentification()
 # Task 3: Log Summary
 # Develop a script that creates a summary of the log file, including the total number of entries, the number of error messages, and the number of unique timestamps in the file.
+
+def logSummary():
+    errorMessages = 0
+    entries = 0
+    uniqueTimeStamps = 0
+
+    while True:
+        from datetime import datetime
+        current_date = datetime.now()
+        timestamp_Unix = int(current_date.timestamp())
+        converted = datetime.fromtimestamp(timestamp_Unix)
+        log = input("Enter Log: errors must start with error, (enter 'done' when finshed) ")
+        log = log.lower()
+
+        if log == 'done':
+            break
+        elif log.startswith("error"):
+            errorMessages += 1
+        else:
+            summary = reviewSummary()
+        uniqueTimeStamps += 1
+        entries += 1
+    print(f"Summary: {summary}, Entries: {entries}, TimeStamps: {uniqueTimeStamps}, Errors: {errorMessages} ")
+
+logSummary()
+
+
 
 # 4. Configuration File Validator
 # Objective:
