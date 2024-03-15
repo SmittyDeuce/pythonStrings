@@ -128,7 +128,7 @@ def reviewSummary():
     print(summary)
 
 
-reviewSummary()
+# reviewSummary()
 
 # 3. Log File Formatter
 # Objective:
@@ -136,6 +136,21 @@ reviewSummary()
 
 # Task 1: Timestamp Extraction
 # Write a script that extracts the timestamp from each log entry. Assume that the timestamp is always at the beginning of each line and is enclosed in square brackets (e.g., "[2023-03-15 10:00:00]").
+def extraction():
+    while True:
+        from datetime import datetime
+        current_date = datetime.now()
+        timestamp_Unix = int(current_date.timestamp())
+        converted = datetime.fromtimestamp(timestamp_Unix)
+        log = input("Enter Log:  (enter 'done' when finshed) ")
+
+        if log.lower() == 'done':
+            break
+        else:
+            print(f"[{converted}], {log}")
+
+extraction()
+
 
 # Task 2: Error Identification
 # Create a function that scans through the log file and identifies any error messages. Assume that all error messages start with the word "ERROR:". The function should print out each error message with its corresponding timestamp.
