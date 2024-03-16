@@ -196,8 +196,7 @@ def logSummary():
         entries += 1
     print(f"Summary: {summary}, Entries: {entries}, TimeStamps: {uniqueTimeStamps}, Errors: {errorMessages} ")
 
-logSummary()
-
+# logSummary()
 
 
 # 4. Configuration File Validator
@@ -206,6 +205,11 @@ logSummary()
 
 # Task 1: Property Format Checker
 # You are given a configuration file where each line contains a property and its value separated by an "=" sign. Write a script that checks each line to ensure it follows this format. If a line does not contain an "=" sign or has more than one, print an error message with the line number.
+
+
+
+
+
 
 # Task 2: Whitespace Remover
 # Modify the script from Task 1 to remove any leading or trailing whitespace from the property names and values.
@@ -219,6 +223,22 @@ logSummary()
 
 # Task 1: Input Length Validator
 # Write a script that checks the length of the user's first name and last name. Both should be at least 2 characters long. If not, print an error message.
+
+def lengthChecker():
+    first = input("What is your first name: ")
+    last = input("What is your last name: ")
+
+    if len(first) < 2:
+        print("Error: first name is not long enough")
+    if len(last) < 2:
+        print("Error: last name is not long enough")
+    if len(first) < 2 and len(last) < 2:
+        print("Error: both names are not long enough")
+    else:
+        print("Input for names are accepted")
+    
+
+lengthChecker()
 
 # Task 2: Password Complexity Checker
 # Create a function that checks the complexity of a user's password. The password must be at least 8 characters long, contain one uppercase letter, one lowercase letter, and one number. If the password does not meet these criteria, print a message explaining the complexity requirements.
