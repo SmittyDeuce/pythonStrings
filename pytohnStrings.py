@@ -271,12 +271,27 @@ def createPassWord():
     elif counter >= 2:
         print("PassWord needs UpperCase, LowerCase, and Number")
 
-createPassWord()
+    return password
+# createPassWord()
 
 
 
 # Task 3: Email Formatter
 # Implement a script that ensures all user email addresses are in a standard format. Convert the entire email address to lowercase and replace any spaces with a period.
+
+def email_format():
+    password = createPassWord()
+
+    print("Time to create your email")
+    firstName = input("Enter your first name: ")
+    lastName = input("Enter your last name: ")
+    firstName = firstName.lower()
+    lastName = lastName.lower()
+
+    userEmail = f"{firstName}.{lastName}@fakecompany.com"
+    print(f"email: {userEmail}\nPassword: {password} ")
+
+email_format()
 
 # 6. Text-Based Report Generator
 # Objective:
