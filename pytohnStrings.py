@@ -238,10 +238,42 @@ def lengthChecker():
         print("Input for names are accepted")
     
 
-lengthChecker()
+# lengthChecker()
 
 # Task 2: Password Complexity Checker
 # Create a function that checks the complexity of a user's password. The password must be at least 8 characters long, contain one uppercase letter, one lowercase letter, and one number. If the password does not meet these criteria, print a message explaining the complexity requirements.
+def createPassWord():
+    criteria = 3
+    counter = 0 
+    print("Password MUST be at least 8 characters long, contain one uppercase letter, one lowercase letter, and one number.")
+    password = input("Create your password: ")
+
+    if len(password) < 8:
+        print("Password needs to be at least 8 characters!")
+        return
+
+    for char in password:
+        if char.islower():
+            counter += 1
+            break
+    
+    for char in password:
+        if char.isupper():
+            counter += 1
+            break
+
+    for char in password:
+        if char.isdigit():
+            counter += 1
+            break
+    if counter == 3:
+        print("Password accepted")
+    elif counter >= 2:
+        print("PassWord needs UpperCase, LowerCase, and Number")
+
+createPassWord()
+
+
 
 # Task 3: Email Formatter
 # Implement a script that ensures all user email addresses are in a standard format. Convert the entire email address to lowercase and replace any spaces with a period.
