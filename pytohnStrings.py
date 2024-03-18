@@ -291,7 +291,7 @@ def email_format():
     userEmail = f"{firstName}.{lastName}@fakecompany.com"
     print(f"email: {userEmail}\nPassword: {password} ")
 
-email_format()
+# email_format()
 
 # 6. Text-Based Report Generator
 # Objective:
@@ -299,6 +299,16 @@ email_format()
 
 # Task 1: Header Formatter
 # Write a script that formats the headers of the report. Each header should be centered, in uppercase, and underlined with "=" characters.
+
+def header():
+    head = input("Type out your Header: ")
+    head = head.upper()
+    centeredHeader = head.center(len(head))
+    print(centeredHeader)
+
+header()
+
+
 
 # Task 2: Data Alignment
 # Format the raw data so that each column is aligned. Assume the data is separated by commas and should be displayed in a table format with each value left-aligned in its column.
