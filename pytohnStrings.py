@@ -206,16 +206,77 @@ def logSummary():
 # Task 1: Property Format Checker
 # You are given a configuration file where each line contains a property and its value separated by an "=" sign. Write a script that checks each line to ensure it follows this format. If a line does not contain an "=" sign or has more than one, print an error message with the line number.
 
+# test = "coding = headache"
+# test2 = test.split()
+# print(test2)
 
+# counter = 0
 
+# for element in test2:
+#     if element == '=':
+#         counter += 1
 
+# if counter == 1:
+#     print("There is 1 equal sign")
+# else:
+#     print('error')
 
 
 # Task 2: Whitespace Remover
 # Modify the script from Task 1 to remove any leading or trailing whitespace from the property names and values.
 
+# test = " coding = headache "
+# strippedTest = test.strip()
+# test2 = strippedTest.split()
+
+
+# counter = 0
+
+# for element in test2:
+#     if element == '=':
+#         counter += 1
+
+# if counter == 1:
+#     print("There is 1 equal sign")
+# else:
+#     print('error')
+
 # Task 3: Duplicate Property Finder
 # Extend the script to check for duplicate property names. If a duplicate is found, print out the property name and the line numbers where the duplicates are located.
+
+test = "Bel-Air Mansion = 545444"
+strippedTest = test.strip()
+test2 = [element.strip() for element in strippedTest.split("=")]
+
+properties ={}
+
+counter = 0
+lineNumber = 0
+
+for element in test2:
+    lineNumber += 1
+
+    if element == '':
+        continue
+
+    if element == '=':
+        counter += 1
+    else:
+        if element in properties:
+            print(f"Duplicate property found:'{element}'")
+            print(f"First occurence at {properties[element]}, current at line {lineNumber} ")
+        else:
+            properties[element] = lineNumber
+
+if len(test2) == 2:
+    print("There is 1 equal sign")
+else:
+    print("Error")
+
+
+
+
+
 
 # 5. User Input Data Processor
 # Objective:
@@ -303,10 +364,11 @@ def email_format():
 def header():
     head = input("Type out your Header: ")
     head = head.upper()
-    centeredHeader = head.center(len(head))
+    centeredHeader = head.center(20)
     print(centeredHeader)
-
-header()
+    equalSigns = "="*len(head)
+    print(equalSigns.center(20))
+# header()
 
 
 
