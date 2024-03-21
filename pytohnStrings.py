@@ -244,34 +244,34 @@ def logSummary():
 # Task 3: Duplicate Property Finder
 # Extend the script to check for duplicate property names. If a duplicate is found, print out the property name and the line numbers where the duplicates are located.
 
-test = "Bel-Air Mansion = 545444"
-strippedTest = test.strip()
-test2 = [element.strip() for element in strippedTest.split("=")]
+# test = "Bel-Air Mansion = 545444"
+# strippedTest = test.strip()
+# test2 = [element.strip() for element in strippedTest.split("=")]
 
-properties ={}
+# properties ={}
 
-counter = 0
-lineNumber = 0
+# counter = 0
+# lineNumber = 0
 
-for element in test2:
-    lineNumber += 1
+# for element in test2:
+#     lineNumber += 1
 
-    if element == '':
-        continue
+#     if element == '':
+#         continue
 
-    if element == '=':
-        counter += 1
-    else:
-        if element in properties:
-            print(f"Duplicate property found:'{element}'")
-            print(f"First occurence at {properties[element]}, current at line {lineNumber} ")
-        else:
-            properties[element] = lineNumber
+#     if element == '=':
+#         counter += 1
+#     else:
+#         if element in properties:
+#             print(f"Duplicate property found:'{element}'")
+#             print(f"First occurence at {properties[element]}, current at line {lineNumber} ")
+#         else:
+#             properties[element] = lineNumber
 
-if len(test2) == 2:
-    print("There is 1 equal sign")
-else:
-    print("Error")
+# if len(test2) == 2:
+#     print("There is 1 equal sign")
+# else:
+#     print("Error")
 
 
 
@@ -361,22 +361,92 @@ def email_format():
 # Task 1: Header Formatter
 # Write a script that formats the headers of the report. Each header should be centered, in uppercase, and underlined with "=" characters.
 
-def header():
-    head = input("Type out your Header: ")
-    head = head.upper()
-    centeredHeader = head.center(20)
-    print(centeredHeader)
-    equalSigns = "="*len(head)
-    print(equalSigns.center(20))
-# header()
+def header(header_text):
+    header_text = header_text.upper()
+
+    lineWidth = len(header_text)
+
+    centered_header = header_text.center(lineWidth)
+
+    header_line = "="*lineWidth
+
+    print(centered_header)
+    print(header_line)
+
+# header("action action")
 
 
 
 # Task 2: Data Alignment
 # Format the raw data so that each column is aligned. Assume the data is separated by commas and should be displayed in a table format with each value left-aligned in its column.
 
+
+def alignment(raw_data):
+    rows = [row.split(',') for row in raw_data.split('\n')]
+    
+    max_widths = [max(len(cell) for cell in column) for column in zip(*rows)]
+    
+    formatted_rows = []
+    for row in rows:
+        formatted_row = ' '.join(cell.ljust(width) for cell, width in zip(row, max_widths))
+        formatted_rows.append(formatted_row)
+    
+    for row in formatted_rows:
+        print(row)
+
+
+raw_data = """John,Doe,25
+Jane,Smith,30
+Adam,Johnson,40"""
+
+# alignment(raw_data)
+
 # Task 3: Report Summary
 # At the end of the report, add a summary section that counts the number of data entries and calculates the average value of a numeric column.
+
+def summary(raw_data):
+    rows = [row.split(',') for row in raw_data.split('\n')]
+
+    entries = len(rows)
+
+    num_column_idx = None
+    num_column_total = 0
+    num_column_count = 0
+
+
+    for index, cell in enumerate(rows[0]):
+        if cell.isdigit():
+            num_column_idx = index
+            break
+
+
+    if num_column_idx is not None:
+        for row in rows:
+            if row[num_column_idx].isdigit():
+                num_column_total += int(row[num_column_idx])
+                num_column_count += 1
+        
+
+        average_val = num_column_total / num_column_count if num_column_count > 0 else 0
+    else:
+        average_val = 0
+
+
+    print("\nSummary:")
+    print(f"Number of data entries: {entries}")
+
+    if average_val != 0:
+        print(f"Avg Val of numeric column: {average_val}")
+    else:
+        print("No Numeric Column")
+
+
+raw_data = """John,Doe,25
+Jane,Smith,30
+Adam,Johnson,40"""
+
+
+summary(raw_data)
 
 # 7. Interactive Help Desk Bot
 # Objective:
