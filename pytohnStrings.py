@@ -9,7 +9,7 @@ from random import random, shuffle, choice
 def names(firstName, lastName):
     print(firstName.capitalize() + " " + lastName.capitalize())
 
-# names('john', 'doe')
+names('john', 'doe')
 
 # Task 2: Email Validation
 # Write a function that checks a list of email addresses for a SaaS application's user accounts. The function should verify that each email contains an "@" symbol and a "." after it, indicating a valid email format. If an email doesn't meet this criterion, print it out for further review.
@@ -31,7 +31,10 @@ def email_validation():
     for email in email_addresses:
         if '@' not in email or'.' not in email:
             print(f"Invalid Email Format: {email}")
-# email_validation()
+
+
+email_validation()
+
 
 # Task 3: Username Generation
 # Create a script that generates a username for each new user. The username should be a combination of the first three letters of their first name and the first three letters of their last name. If the name is shorter than three letters, use the full name. Ensure all usernames are in lowercase.
@@ -65,7 +68,7 @@ def userNameGeneration():
         print("New username is: ", firstThree + lastThree)
 
 
-# userNameGeneration()
+userNameGeneration()
 
 
 # 2. Product Review Analysis
@@ -89,7 +92,9 @@ def highlighter():
                 reviewList[idx] = reviewList[idx].upper()
                 modifiedReview = " ".join(reviewList)
     print(modifiedReview)
-# highlighter()
+
+
+highlighter()
 
 
 # Task 2: Sentiment Tally
@@ -112,7 +117,7 @@ def sentimentTally():
             goodcounter += 1
     return f"There were a total of {badcounter} negative words and {goodcounter} positive words"
 
-# print(sentimentTally())
+print(sentimentTally())
 
 
 # Task 3: Review Summary
@@ -128,7 +133,7 @@ def reviewSummary():
     return summary
 
 
-# print(reviewSummary())
+print(reviewSummary())
 
 # 3. Log File Formatter
 # Objective:
@@ -149,7 +154,7 @@ def extraction():
         else:
             print(f"[{converted}], {log}")
 
-# extraction()
+extraction()
 
 
 # Task 2: Error Identification
@@ -169,7 +174,9 @@ def errorIdentification ():
         elif log.startswith("error"):
             print(f"[{converted}], ERROR: {log} ")
 
-# errorIdentification()
+errorIdentification()
+            
+
 # Task 3: Log Summary
 # Develop a script that creates a summary of the log file, including the total number of entries, the number of error messages, and the number of unique timestamps in the file.
 
@@ -196,7 +203,7 @@ def logSummary():
         entries += 1
     print(f"Summary: {summary}, Entries: {entries}, TimeStamps: {uniqueTimeStamps}, Errors: {errorMessages} ")
 
-# logSummary()
+logSummary()
 
 
 # 4. Configuration File Validator
@@ -206,76 +213,72 @@ def logSummary():
 # Task 1: Property Format Checker
 # You are given a configuration file where each line contains a property and its value separated by an "=" sign. Write a script that checks each line to ensure it follows this format. If a line does not contain an "=" sign or has more than one, print an error message with the line number.
 
-# test = "coding = headache"
-# test2 = test.split()
-# print(test2)
+test = "coding = headache"
+test2 = test.split()
+print(test2)
 
-# counter = 0
+counter = 0
 
-# for element in test2:
-#     if element == '=':
-#         counter += 1
+for element in test2:
+    if element == '=':
+        counter += 1
 
-# if counter == 1:
-#     print("There is 1 equal sign")
-# else:
-#     print('error')
+if counter == 1:
+    print("There is 1 equal sign")
+else:
+    print('error')
 
 
 # Task 2: Whitespace Remover
 # Modify the script from Task 1 to remove any leading or trailing whitespace from the property names and values.
 
-# test = " coding = headache "
-# strippedTest = test.strip()
-# test2 = strippedTest.split()
+test = " coding = headache "
+strippedTest = test.strip()
+test2 = strippedTest.split()
 
 
-# counter = 0
+counter = 0
 
-# for element in test2:
-#     if element == '=':
-#         counter += 1
+for element in test2:
+    if element == '=':
+        counter += 1
 
-# if counter == 1:
-#     print("There is 1 equal sign")
-# else:
-#     print('error')
+if counter == 1:
+    print("There is 1 equal sign")
+else:
+    print('error')
 
 # Task 3: Duplicate Property Finder
 # Extend the script to check for duplicate property names. If a duplicate is found, print out the property name and the line numbers where the duplicates are located.
 
-# test = "Bel-Air Mansion = 545444"
-# strippedTest = test.strip()
-# test2 = [element.strip() for element in strippedTest.split("=")]
+test = "Bel-Air Mansion = 545444"
+strippedTest = test.strip()
+test2 = [element.strip() for element in strippedTest.split("=")]
 
-# properties ={}
+properties ={}
 
-# counter = 0
-# lineNumber = 0
+counter = 0
+lineNumber = 0
 
-# for element in test2:
-#     lineNumber += 1
+for element in test2:
+    lineNumber += 1
 
-#     if element == '':
-#         continue
+    if element == '':
+        continue
 
-#     if element == '=':
-#         counter += 1
-#     else:
-#         if element in properties:
-#             print(f"Duplicate property found:'{element}'")
-#             print(f"First occurence at {properties[element]}, current at line {lineNumber} ")
-#         else:
-#             properties[element] = lineNumber
+    if element == '=':
+        counter += 1
+    else:
+        if element in properties:
+            print(f"Duplicate property found:'{element}'")
+            print(f"First occurence at {properties[element]}, current at line {lineNumber} ")
+        else:
+            properties[element] = lineNumber
 
-# if len(test2) == 2:
-#     print("There is 1 equal sign")
-# else:
-#     print("Error")
-
-
-
-
+if len(test2) == 2:
+    print("There is 1 equal sign")
+else:
+    print("Error")
 
 
 # 5. User Input Data Processor
@@ -299,7 +302,7 @@ def lengthChecker():
         print("Input for names are accepted")
     
 
-# lengthChecker()
+lengthChecker()
 
 # Task 2: Password Complexity Checker
 # Create a function that checks the complexity of a user's password. The password must be at least 8 characters long, contain one uppercase letter, one lowercase letter, and one number. If the password does not meet these criteria, print a message explaining the complexity requirements.
@@ -333,7 +336,7 @@ def createPassWord():
         print("PassWord needs UpperCase, LowerCase, and Number")
 
     return password
-# createPassWord()
+createPassWord()
 
 
 
@@ -352,7 +355,7 @@ def email_format():
     userEmail = f"{firstName}.{lastName}@fakecompany.com"
     print(f"email: {userEmail}\nPassword: {password} ")
 
-# email_format()
+email_format()
 
 # 6. Text-Based Report Generator
 # Objective:
@@ -373,7 +376,7 @@ def header(header_text):
     print(centered_header)
     print(header_line)
 
-# header("action action")
+header("action action")
 
 
 
@@ -399,7 +402,7 @@ raw_data = """John,Doe,25
 Jane,Smith,30
 Adam,Johnson,40"""
 
-# alignment(raw_data)
+alignment(raw_data)
 
 # Task 3: Report Summary
 # At the end of the report, add a summary section that counts the number of data entries and calculates the average value of a numeric column.
@@ -454,9 +457,73 @@ summary(raw_data)
 
 # Task 1: Command Parser
 # Write a script that takes a user's text input and identifies if it contains one of the predefined commands (e.g., "help", "issue", "contact support"). If a command is found, print a response related to the command.
+# (e.g., "help", "issue", "contact support")
+
+def parser():
+    print("Welcome! I am Saas Bot :p")
+    
+    keyWordFilter = input("How may I help you?: \n").lower()
+
+    if 'help'.lower() in keyWordFilter:
+        print("Sure! How can I assist you today?")
+    if 'issue'.lower() in keyWordFilter:
+        print( "I'm here to help resolve any issues you may encounter. Please describe the problem, and I'll do my best to assist you.")
+    if 'contact support'.lower() in keyWordFilter:
+        print("You can reach our support team at support@example.com or by phone at 1-800-123-4567. We're here to help!")
+    else:
+        print("I am sorry can you reword your issue so i can direct you better")    
+
+parser()
 
 # Task 2: Issue Categorizer
 # If the user's input contains the word "issue", further categorize the issue based on keywords such as "login", "performance", "error", etc. Print out the category of the issue for the support team.
+# "login", "performance", "error",
+
+def parser():
+    print("Welcome! I am Saas Bot :p")
+    
+    keyWordFilter = input("How may I help you?: \n").lower()
+
+    if 'help'.lower() in keyWordFilter:
+        print("Sure! How can I assist you today?")
+
+    elif 'issue'.lower() in keyWordFilter:
+        print( "I'm here to help resolve any issues you may encounter.")
+        issueType = input("is your issue: 'Login', 'performance, or 'error' \n").lower()
+        if issueType == 'login'.lower():
+            print("your issue has be flagged as login")
+        elif issueType == 'performance'.lower():
+            print("your issue has been flagged as performance")
+        elif issueType == 'error':
+            print("your issue has been flagged as error")
+        else:
+            print("Invalid Response: contact support for further help")
+
+    elif 'contact support'.lower() in keyWordFilter:
+        print("You can reach our support team at support@example.com or by phone at 1-800-123-4567. We're here to help!")
+    else:
+        print("I am sorry can you reword your issue so i can direct you better")    
+
+parser()
+
+
+
 
 # Task 3: Auto-Response Generator
 # For general help inquiries, create a script that generates an auto-response providing links to the FAQ section, support contact information, and a link to submit a ticket.
+
+def autoResponse():
+    print("Thank you for reaching out to us for help!")
+    print("Here are some resources that may assist you:")
+
+
+    print("- FAQ Section: https://example.com/faq")
+
+
+    print("- Support Contact Information:")
+    print("  Email: support@example.com")
+    print("  Phone: 1-800-123-4567")
+
+    print("- Submit a Ticket: https://example.com/submit_ticket")
+
+autoResponse()
